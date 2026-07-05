@@ -17,15 +17,17 @@ pipeline {
             }
         }
 
-        stage('Verify Tools') {
-            steps {
-                sh '''
-                python3 --version
-                docker --version
-                docker compose version
-                '''
-            }
+    stage('Verify Tools') {
+        steps {
+            sh '''
+            python3 --version
+            docker --version
+            docker compose version
+            node --version
+            npm --version
+            '''
         }
+    }
 
         stage('Workspace') {
             steps {
