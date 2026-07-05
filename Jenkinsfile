@@ -23,10 +23,11 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Workspace') {
             steps {
                 sh '''
-                python3 -m pip install --break-system-packages -r requirements.txt
+                pwd
+                ls -la
                 '''
             }
         }
@@ -49,9 +50,11 @@ pipeline {
 
         stage('Build Image') {
             steps {
-                sh '''
-                docker build -t employeefeedback-flask:latest .
-                '''
+                sh """
+                docker build \
+                    -t employeefeedback-flask:${BUILD_NUMBER} \
+                    -t employeefeedback-flask:latest .
+                """
             }
         }
 
