@@ -2,7 +2,6 @@ services:
   mysql:
     image: mysql:8 
 
-    container_name: mysql 
 
     restart: always 
 
@@ -27,7 +26,7 @@ services:
 
     image: employeefeedback-flask:latest
 
-    container_name: flask 
+ 
     restart: always 
 
     depends_on:
@@ -52,7 +51,7 @@ services:
   nginx:
     image: nginx:latest 
 
-    container_name: nginx
+
 
     ports:
       - "80:80"
